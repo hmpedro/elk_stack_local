@@ -27,27 +27,6 @@ services:
     depends_on:
       elasticsearch:
         condition: service_healthy
-  
-  prometheus:
-    build:
-      context: ./prometheus
-    container_name: prometheus
-    network_mode: "host"
-
-  grafana:
-    build:
-      context: ./grafana
-    container_name: grafana
-    network_mode: "host"
-  
-  mysql:
-    image: mysql:5.6
-    container_name: mysql
-    network_mode: "host"
-    environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: db_example
-  
     
 volumes:
   elasticsearch_data:
